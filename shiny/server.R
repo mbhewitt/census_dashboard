@@ -7,7 +7,7 @@ library(plyr)
 library(ggplot2)
 
 ## Settings
-dataLocation = "Census2017Geomapwtlabels.csv"
+dataLocation = "Clean2017CensusFulltabMar2018.csv"
 
 
 ## Open input file
