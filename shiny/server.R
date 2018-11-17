@@ -82,7 +82,7 @@ shinyServer( function(input, output) {
       geom_bar(fill = colorScheme[1], data=censusResults, 
                aes_string(x = input$rowvar,weight=weights / normWeights)) +
       labs(x = varnames$label[varnames$varnames == input$colvar],
-           y = 'Precentage') +
+           y = 'Percentage') +
       scale_y_continuous(labels=scales::percent) +
       theme(axis.text.x=element_text(angle=90, hjust=1))
   })
@@ -93,7 +93,7 @@ shinyServer( function(input, output) {
       geom_bar(fill = colorScheme[1], data=censusResults, 
                aes_string(x = input$colvar,weight=weights / normWeights)) +
       labs(x = varnames$label[varnames$varnames == input$colvar],
-           y = 'Precentage') +
+           y = 'Percentage') +
       scale_y_continuous(labels=scales::percent) +
       theme(axis.text.x=element_text(angle=90, hjust=1))
   })
