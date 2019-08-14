@@ -73,16 +73,16 @@ shinyServer( function(input, output) {
                         axis.title.y = element_text(face = "bold", margin = margin(0,20,0,0), size = 14),
                         axis.title.x = element_text(face = "bold", margin = margin(20,0,0,0), size = 14),
                         axis.text = element_text(size = 13), plot.title = element_text(face = "bold", hjust = 0.5))
-  colorSetting <- scale_color_manual(values=colorscheme)
-  fillSetting <- scale_fill_manual(values=colorscheme)
+  colorSetting <- scale_color_manual(values=colorScheme)
+  fillSetting <- scale_fill_manual(values=colorScheme)
 
   output$plotRow <- renderPlot({
     ggplot(environment = environment()) +
       themeSetting +
       geom_bar(fill = colorScheme[1], data=censusResults, 
                aes_string(x = input$rowvar,weight=weights / normWeights)) +
-      labs(x = varnames$label[varnames$varnames == input$colvar],
-           y = 'Precentage') +
+      labs(x = varnames$label[varnames$varnames == input$rowvar],
+           y = 'Percentage') +
       scale_y_continuous(labels=scales::percent) +
       theme(axis.text.x=element_text(angle=90, hjust=1))
   })
@@ -93,7 +93,7 @@ shinyServer( function(input, output) {
       geom_bar(fill = colorScheme[1], data=censusResults, 
                aes_string(x = input$colvar,weight=weights / normWeights)) +
       labs(x = varnames$label[varnames$varnames == input$colvar],
-           y = 'Precentage') +
+           y = 'Percentage') +
       scale_y_continuous(labels=scales::percent) +
       theme(axis.text.x=element_text(angle=90, hjust=1))
   })
